@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  padding: 2rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnsDiv {
+  display: flex;
+}
+
+.actionBtn {
+  width: 1.25rem;
+  outline: none;
+  margin: 0rem 1rem;
+  cursor: pointer;
+}
