@@ -6,6 +6,7 @@ import closeImg from "../../assets/close.svg";
 interface Modal {
   closeModal(state: boolean): void;
 }
+
 const AddModal: React.FC<Modal> = ({ closeModal }) => {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");

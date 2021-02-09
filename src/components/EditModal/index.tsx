@@ -18,7 +18,6 @@ const EditModal: React.FC<TicketInfo> = ({
   endDate,
   source,
   startDate,
-  closeModal() : void
 }) => {
   const [sourceEdit, setSourceEdit] = useState(source);
   const [destinationEdit, setDestinationEdit] = useState(destination);
