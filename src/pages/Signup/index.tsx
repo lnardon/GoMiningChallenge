@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import styles from "./styles.module.scss";
+import useValidation from "../../hooks/useValidation";
 
 const Signup: React.FC = () => {
+  useValidation();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

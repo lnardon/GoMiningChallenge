@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import styles from "./styles.module.scss";
+import useValidation from "../../hooks/useValidation";
 
 const Login: React.FC = () => {
+  useValidation();
   const [username, setUsername] = useState("lnardon");
   const [password, setPassword] = useState("test");
   const history = useHistory();
@@ -33,13 +35,21 @@ const Login: React.FC = () => {
           <label className={styles.inputLabel} htmlFor="username">
             Username
           </label>
-          <input className={styles.input} type="text" />
+          <input
+            className={styles.input}
+            type="text"
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
         <div className={styles.inputDiv}>
           <label className={styles.inputLabel} htmlFor="username">
             Password
           </label>
-          <input className={styles.input} type="text" />
+          <input
+            className={styles.input}
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <button className={styles.btn} onClick={handleLogin}>
           Log In
