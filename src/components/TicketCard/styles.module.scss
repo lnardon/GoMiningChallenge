@@ -1,18 +1,39 @@
 .container {
   width: 100%;
-  padding: 2rem 0rem;
+  padding: 1rem 0rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+.ticketInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.date {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+.title {
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  word-break: break-all;
 }
 
 .btnsDiv {
   display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .actionBtn {
   width: 1.25rem;
   outline: none;
-  margin: 0rem 1rem;
   cursor: pointer;
 }

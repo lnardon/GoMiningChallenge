@@ -12,7 +12,7 @@ const AddModal: React.FC<Modal> = ({ closeModal }) => {
   const [destination, setDestination] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState("");
 
   const createTicket = async () => {
     let token = localStorage.getItem("@jwt");
@@ -27,7 +27,7 @@ const AddModal: React.FC<Modal> = ({ closeModal }) => {
         destination,
         startDate,
         endDate,
-        comment,
+        comments,
       }),
     });
     if (response.status === 201) {
@@ -99,7 +99,7 @@ const AddModal: React.FC<Modal> = ({ closeModal }) => {
             placeholder="Eat at Joe's Pub"
             className={styles.input}
             type="text"
-            onChange={(e) => setComment(e.target.value)}
+            onChange={(e) => setComments(e.target.value)}
           />
         </div>
         <button className={styles.btn} onClick={createTicket}>

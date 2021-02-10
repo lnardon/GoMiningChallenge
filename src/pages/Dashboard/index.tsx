@@ -8,12 +8,12 @@ import EditModal from "../../components/EditModal";
 import AddModal from "../../components/AddModal";
 import offImg from "../../assets/off.svg";
 interface Ticket {
-  comment: string;
+  comments: string;
   destination: string;
   endDate: string;
   source: string;
   startDate: string;
-  ticketId: string;
+  id: string;
 }
 
 const Dashboard: React.FC = () => {
@@ -71,12 +71,13 @@ const Dashboard: React.FC = () => {
       {openModal && <AddModal closeModal={setOpenModal} />}
       {openEditModal && (
         <EditModal
-          ticketId={currentTicket?.ticketId}
-          comment={currentTicket?.comment}
+          id={currentTicket?.id}
+          comments={currentTicket?.comments}
           destination={currentTicket?.destination}
           endDate={currentTicket?.endDate}
           source={currentTicket?.source}
           startDate={currentTicket?.startDate}
+          closeModal={setOpenEditModal}
         />
       )}
       <div className={styles.contentDiv}>
@@ -92,21 +93,24 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {tickets?.map((ticket, index) => {
-          return (
-            <TicketCard
-              key={index}
-              ticketId={ticket.ticketId}
-              source={ticket.source}
-              destination={ticket.destination}
-              startDate={ticket.startDate.substring(0, 10)}
-              endDate={ticket.endDate.substring(0, 10)}
-              comment={ticket.comment}
-              deleteTicket={deleteTicket}
-              openEditModal={openEditModalHandle}
-            />
-          );
-        })}
+        <div className={styles.ticketsList}>
+          {tickets?.map((ticket) => {
+            return (
+              <TicketCard
+                key={ticket.id}
+                id={ticket.id}
+                source={ticket.source}
+                destination={ticket.destination}
+                startDate={ticket.startDate}
+                endDate={ticket.endDate}
+                comments={ticket.comments}
+                deleteTicket={deleteTicket}
+                openEditModal={openEditModalHandle}
+              />
+            );
+          })}
+        </div>
+
         <div className={styles.addBtnDiv}>
           <button className={styles.addBtn} onClick={() => setOpenModal(true)}>
             Add ticket

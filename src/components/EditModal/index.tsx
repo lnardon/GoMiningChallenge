@@ -1,29 +1,32 @@
 import React, { useState } from "react";
 
 import styles from "./styles.module.scss";
+import closeImg from "../../assets/close.svg";
 
-interface TicketInfo {
-  ticketId?: string;
-  comment?: string;
-  destination?: string;
-  endDate?: string;
-  source?: string;
-  startDate?: string;
+interface EditProps {
+  id: string | undefined;
+  comments: string | undefined;
+  destination: string | undefined;
+  endDate: string | undefined;
+  source: string | undefined;
+  startDate: string | undefined;
+  closeModal(state: boolean): void | undefined;
 }
 
-const EditModal: React.FC<TicketInfo> = ({
-  ticketId,
-  comment,
+const EditModal: React.FC<EditProps> = ({
+  id,
+  comments,
   destination,
   endDate,
   source,
   startDate,
+  closeModal,
 }) => {
   const [sourceEdit, setSourceEdit] = useState(source);
   const [destinationEdit, setDestinationEdit] = useState(destination);
   const [startDateEdit, setStartDateEdit] = useState(startDate);
   const [endDateEdit, setEndDateEdit] = useState(endDate);
-  const [commentEdit, setCommentEdit] = useState(comment);
+  const [commentsEdit, setCommentsEdit] = useState(comments);
 
   const editTicket = async () => {
     let token = localStorage.getItem("@jwt");
@@ -34,13 +37,15 @@ const EditModal: React.FC<TicketInfo> = ({
         Authorization: "Bearer " + token,
       },
       body: JSON.stringify({
-        sourceEdit,
-        destinationEdit,
-        startDateEdit,
-        endDateEdit,
-        commentEdit,
+        id: id,
+        source: sourceEdit,
+        destination: destinationEdit,
+        startDate: startDateEdit,
+        endDate: endDateEdit,
+        comments: commentsEdit,
       }),
     });
+    console.log(response);
     if (response.status === 200) {
       alert("Ticket edited!");
       window.location.reload();
@@ -108,14 +113,14 @@ const EditModal: React.FC<TicketInfo> = ({
         </div>
         <div className={styles.inputDiv}>
           <label className={styles.inputLabel} htmlFor="comment">
-            Comment:
+            Comments:
           </label>
           <input
             placeholder="Eat at Joe's Pub"
             className={styles.input}
             type="text"
-            onChange={(e) => setCommentEdit(e.target.value)}
-            value={commentEdit}
+            onChange={(e) => setCommentsEdit(e.target.value)}
+            value={commentsEdit}
           />
         </div>
         <button className={styles.btn} onClick={editTicket}>

@@ -5,16 +5,16 @@ import closeImg from "../../assets/close.svg";
 import editImg from "../../assets/edit.svg";
 
 interface Ticket {
-  ticketId: string;
-  comment: string;
+  id: string;
+  comments: string;
   destination: string;
   endDate: string;
   source: string;
   startDate: string;
 }
-interface TicketInfo {
-  ticketId: string;
-  comment: string;
+interface TicketCardInfo {
+  id: string;
+  comments: string;
   destination: string;
   endDate: string;
   source: string;
@@ -23,20 +23,32 @@ interface TicketInfo {
   openEditModal(ticket: Ticket): void;
 }
 
-const TicketCard: React.FC<TicketInfo> = ({
+//interface IFooBar extends IFoo
+
+const TicketCard: React.FC<TicketCardInfo> = ({
   source,
   destination,
   startDate,
   endDate,
-  ticketId,
-  comment,
+  id,
+  comments,
   deleteTicket,
   openEditModal,
 }) => {
+  function formatDate(date: string) {
+    let formatedDate = "";
+    formatedDate += date.substring(8, 10) + "/";
+    formatedDate += date.substring(5, 7) + "/";
+    formatedDate += date.substring(0, 4);
+    return formatedDate;
+  }
+
   return (
     <div className={styles.container}>
-      <h1>{`${destination}`}</h1>
-      <h1>{startDate}</h1>
+      <div className={styles.ticketInfo}>
+        <h4 className={styles.date}>{formatDate(startDate)}</h4>
+        <h1 className={styles.title}>{`${destination}`}</h1>
+      </div>
       <div className={styles.btnsDiv}>
         <img
           src={editImg}
@@ -48,8 +60,8 @@ const TicketCard: React.FC<TicketInfo> = ({
               destination,
               startDate,
               endDate,
-              ticketId,
-              comment,
+              id,
+              comments,
             })
           }
         />
@@ -57,7 +69,8 @@ const TicketCard: React.FC<TicketInfo> = ({
           src={closeImg}
           alt="close"
           className={styles.actionBtn}
-          onClick={() => deleteTicket(ticketId)}
+          onClick={() => deleteTicket(id)}
+          style={{ marginLeft: "2rem" }}
         />
       </div>
     </div>
