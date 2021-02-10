@@ -5,9 +5,9 @@ import styles from "./styles.module.scss";
 import useValidation from "../../hooks/useValidation";
 
 const Login: React.FC = () => {
-  useValidation();
-  const [username, setUsername] = useState("lnardon");
-  const [password, setPassword] = useState("test");
+  // useValidation();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const history = useHistory();
 
   const handleLogin = async () => {
@@ -30,10 +30,10 @@ const Login: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>
-        <h1>Login</h1>
+        <h1 className={styles.title}>Login</h1>
         <div className={styles.inputDiv}>
           <label className={styles.inputLabel} htmlFor="username">
-            Username
+            Username:
           </label>
           <input
             className={styles.input}
@@ -43,7 +43,7 @@ const Login: React.FC = () => {
         </div>
         <div className={styles.inputDiv}>
           <label className={styles.inputLabel} htmlFor="username">
-            Password
+            Password:
           </label>
           <input
             className={styles.input}
@@ -55,10 +55,12 @@ const Login: React.FC = () => {
           Log In
         </button>
 
-        <div className={styles.signUpDiv}>
-          <h4>Doesn't have an account?</h4>
-          <h4>Click to sign up</h4>
-        </div>
+        <button
+          className={styles.signupBtn}
+          onClick={() => history.push("/signup")}
+        >
+          Sign Up
+        </button>
       </div>
     </div>
   );

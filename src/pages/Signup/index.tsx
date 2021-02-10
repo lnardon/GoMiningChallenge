@@ -31,10 +31,10 @@ const Signup: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>
-        <h1>Sign up</h1>
+        <h1 className={styles.title}>Sign up</h1>
         <div className={styles.inputDiv}>
           <label className={styles.inputLabel} htmlFor="username">
-            Username
+            Username:
           </label>
           <input
             className={styles.input}
@@ -44,7 +44,7 @@ const Signup: React.FC = () => {
         </div>
         <div className={styles.inputDiv}>
           <label className={styles.inputLabel} htmlFor="email">
-            Email
+            Email:
           </label>
           <input
             className={styles.input}
@@ -54,7 +54,7 @@ const Signup: React.FC = () => {
         </div>
         <div className={styles.inputDiv}>
           <label className={styles.inputLabel} htmlFor="password">
-            Password
+            Password:
           </label>
           <input
             className={styles.input}
@@ -66,10 +66,9 @@ const Signup: React.FC = () => {
           Sign up
         </button>
 
-        <div className={styles.signUpDiv}>
-          <h4>Already have an account?</h4>
-          <h4>Click to here sign in</h4>
-        </div>
+        <button className={styles.signupBtn} onClick={() => history.push("/")}>
+          Sign In
+        </button>
       </div>
     </div>
   );

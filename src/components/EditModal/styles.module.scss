@@ -16,7 +16,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f8f8f8;
+  background-color: #fefefe;
   border-radius: 0.25rem;
   padding: 2rem;
 }
@@ -34,6 +34,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 2rem;
+  color: #3b3b3b;
 }
 
 .inputDiv {
@@ -47,15 +48,17 @@
   font-size: 1.125rem;
   font-weight: 500;
   margin-bottom: 0.125rem;
+  color: #3b3b3b;
 }
 
 .input {
   outline: none;
-  padding: 0.5rem;
+  padding: 0.5rem 0rem;
   font-size: 1rem;
   background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.75);
-  border-radius: 0.125rem;
+  border: none;
+  border-bottom: 1px solid #3b3b3b;
+  color: #3b3b3b;
 }
 
 .btn {

@@ -12,14 +12,20 @@
 .contentContainer {
   width: 100%;
   max-width: 450px;
-  background-color: white;
-  padding: 2rem;
+  background-color: #fefefe;
+  padding: 3rem;
   margin: 2rem 1rem;
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #3b3b3b;
 }
 
 .inputDiv {
@@ -32,12 +38,15 @@
 .inputLabel {
   font-size: 1rem;
   font-weight: 500;
+  color: #3b3b3b;
 }
 
 .input {
   outline: none;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0rem;
   font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid #3b3b3b;
 }
 
 .btn {
@@ -49,13 +58,20 @@
   outline: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  background-color: #e9da03;
+  background-color: #153ffc;
   margin: 1rem 0rem;
+  color: #fafafa;
 }
 
-.signUpDiv {
+.signupBtn {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: 2px solid #153ffc;
+  border-radius: 0.125rem;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: #153ffc;
 }

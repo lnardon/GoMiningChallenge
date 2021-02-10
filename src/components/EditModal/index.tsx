@@ -56,7 +56,7 @@ const EditModal: React.FC<EditProps> = ({
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>
-        <h1>Edit ticket</h1>
+        <h1 className={styles.title}>Edit ticket</h1>
         <img
           src={closeImg}
           alt="Close"

@@ -11,7 +11,7 @@
 .contentDiv {
   width: 90%;
   max-width: 1200px;
-  background-color: #f3f3f9;
+  background-color: #fefefe;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,11 +27,12 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 1rem;
-  border-bottom: 2px solid rgb(97, 97, 97);
+  border-bottom: 2px solid #3b3b3b;
 }
 
 .title {
   font-size: 2.5rem;
+  color: #3b3b3b;
 }
 
 .logoutDiv {
@@ -64,4 +65,5 @@
   cursor: pointer;
   background-color: #153ffc;
   color: #fafafa;
+  margin-top: 1rem;
 }
