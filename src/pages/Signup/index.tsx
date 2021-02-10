@@ -19,9 +19,16 @@ const Signup: React.FC = () => {
       },
       body: JSON.stringify({ username, email, password }),
     });
-    let p = await response.text();
-    console.log(response, p);
     if (response.status === 201) {
+      let response = await fetch("http://3.137.211.94:5000/v1/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+      let parsedResponse = await response.json();
+      localStorage.setItem("@jwt", parsedResponse.jwt);
       history.push("/dashboard");
     } else {
       alert("Server error!");

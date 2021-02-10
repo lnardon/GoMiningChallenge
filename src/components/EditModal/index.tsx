@@ -2,15 +2,10 @@ import React, { useState } from "react";
 
 import styles from "./styles.module.scss";
 import closeImg from "../../assets/close.svg";
+import { Ticket } from "../../interfaces/Ticket";
 
-interface EditProps {
-  id: string | undefined;
-  comments: string | undefined;
-  destination: string | undefined;
-  endDate: string | undefined;
-  source: string | undefined;
-  startDate: string | undefined;
-  closeModal(state: boolean): void | undefined;
+interface EditProps extends Ticket {
+  closeModal(state: boolean): void;
 }
 
 const EditModal: React.FC<EditProps> = ({

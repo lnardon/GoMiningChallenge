@@ -7,14 +7,7 @@ import TicketCard from "../../components/TicketCard";
 import EditModal from "../../components/EditModal";
 import AddModal from "../../components/AddModal";
 import offImg from "../../assets/off.svg";
-interface Ticket {
-  comments: string;
-  destination: string;
-  endDate: string;
-  source: string;
-  startDate: string;
-  id: string;
-}
+import { Ticket } from "../../interfaces/Ticket";
 
 const Dashboard: React.FC = () => {
   useValidation();
@@ -71,12 +64,12 @@ const Dashboard: React.FC = () => {
       {openModal && <AddModal closeModal={setOpenModal} />}
       {openEditModal && (
         <EditModal
-          id={currentTicket?.id}
-          comments={currentTicket?.comments}
-          destination={currentTicket?.destination}
-          endDate={currentTicket?.endDate}
-          source={currentTicket?.source}
-          startDate={currentTicket?.startDate}
+          id={currentTicket!.id}
+          comments={currentTicket!.comments}
+          destination={currentTicket!.destination}
+          endDate={currentTicket!.endDate}
+          source={currentTicket!.source}
+          startDate={currentTicket!.startDate}
           closeModal={setOpenEditModal}
         />
       )}

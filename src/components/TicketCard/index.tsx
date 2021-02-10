@@ -3,22 +3,8 @@ import React from "react";
 import styles from "./styles.module.scss";
 import closeImg from "../../assets/close.svg";
 import editImg from "../../assets/edit.svg";
-
-interface Ticket {
-  id: string;
-  comments: string;
-  destination: string;
-  endDate: string;
-  source: string;
-  startDate: string;
-}
-interface TicketCardInfo {
-  id: string;
-  comments: string;
-  destination: string;
-  endDate: string;
-  source: string;
-  startDate: string;
+import { Ticket } from "../../interfaces/Ticket";
+interface TicketCardInfo extends Ticket {
   deleteTicket: (id: string) => void;
   openEditModal(ticket: Ticket): void;
 }

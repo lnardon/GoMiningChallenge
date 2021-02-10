@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import useValidation from "../../hooks/useValidation";
 
 const Login: React.FC = () => {
-  // useValidation();
+  useValidation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
