@@ -16,3 +16,4 @@ yarn && yarn start
 
 - React
 - Typescript
+- SCSS
